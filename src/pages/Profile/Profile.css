@@ -1,0 +1,128 @@
+.profile {
+    display: flex;
+}
+
+
+.profileContainer {
+    flex: 5;
+    box-shadow: -4px 5px 39px -12px rgba(150, 150, 150, 0.66);
+    margin-left: 17%;
+    margin-right: 5%;
+    margin-top: 20vh;
+    height: 10vh;
+}
+
+.profileTitil {
+    font-size: 25px;
+    margin: 20px 10px 5px 30px;
+    font-size: 25px;
+    color: gray;
+}
+
+.profileTopbar {
+    display: flex;
+}
+
+.profileTopbar .active {
+    color: red;
+    border-bottom: 2px solid red;
+}
+
+.profileTopbar a {
+    margin: 19px;
+    font-size: 17px;
+    cursor: pointer;
+    text-decoration: none;
+    color: gray;
+}
+
+.profileTopbar i {
+    margin: 0px 7px 0px 0px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.profileTopbar :hover {
+    color: red;
+}
+
+/* input filed  for username and email*/
+.changeUserData {
+    display: flex;
+}
+
+.changeUserDataInputField {
+    width: 100%;
+    margin-left: 4%;
+}
+
+.submitbutton{
+    margin-left: 4%;
+    margin-top: 3%;
+}
+
+.submitbutton>button{
+    outline: none;
+        border: none;
+        font-weight: 500;
+        color: white;
+        background-color: red;
+        border-radius: 9px;
+        font-size: 14px;
+}
+
+.submitbutton>button:hover{
+    background-color: rgb(250, 105, 105);
+}
+
+.changeUserDataInputField label {
+    color: gray;
+    font-size: 14px;
+}
+
+.changeUserDataInputField input {
+    width: 94%;
+    height: 42px;
+    padding: 5px 10px;
+    outline-color: red;
+    border-radius: 4px;
+    border: none;
+    border: 1px solid gray;
+    color: gray;
+}
+
+.submmitButton button {
+    margin: 20px 10px 20px 50px;
+    padding: 3px 20px;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    color: white;
+    background-color: red;
+    border-radius: 9px;
+    font-size: 14px;
+}
+
+.submmitButton button:hover {
+    background-color: rgb(250, 105, 105);
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .profileContainer {
+        margin-left: 3%;
+        margin-top: 3vh;
+    }
+
+    .profileTopbar a {
+        margin-top: 8%;
+    }
+
+    .submmitButton button {
+        outline: none;
+        margin: 30px 30px 23px 10px;
+        font-size: 12px;
+        padding: 4px 20px;
+        margin-top: 5%;
+    }
+}

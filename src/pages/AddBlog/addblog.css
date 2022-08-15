@@ -1,0 +1,164 @@
+.newBlog {
+    display: flex;
+    height: auto;
+}
+
+.newBlogContainer {
+    flex: 5;
+    margin-top: 12vh;
+    margin-left: 17%;
+    margin-bottom: 10vh;
+}
+
+.newBlogTitle h3 {
+    font-weight: 500;
+    color: rgb(92, 90, 90);
+    margin-top: 20px;
+    letter-spacing: 1px;
+    font-size: 22px;
+}
+
+/*input */
+.blogInputField input {
+    width: 89%;
+    color: gray;
+    outline: none;
+    border: 2px solid rgb(198, 198, 198);
+    padding: 4px;
+    border-radius: 5px;
+    margin-top: 7px;
+    height: 42px;
+}
+
+.blogInputField label {
+    font-weight: 400;
+    color: gray;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.createnewBlogButton button {
+    margin-top: 15px;
+    padding: 3px 60px;
+    outline: none;
+    border: none;
+    font-weight: 600;
+    color: white;
+    background-color: red;
+    border-radius: 9px;
+}
+
+/* thumbnail img */
+.blogInputFieldImg {
+    height: auto;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    box-shadow: -4px 5px 39px -12px rgba(153, 153, 153, 0.66);
+    padding: 20px;
+}
+
+.blogInputFieldImg label {
+    font-weight: 600;
+    color: gray;
+}
+
+.blogInputFieldImg p {
+    border: 1px solid red;
+    font-size: 13px;
+    padding: 4px 20px;
+    color: rgb(251, 81, 81);
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* meta data  */
+.newBlogseoMetaData {
+    height: auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    box-shadow: -4px 5px 39px -12px rgba(153, 153, 153, 0.66);
+    padding: 20px;
+    flex-direction: column;
+    margin: 10px 10px 10px 0px;
+}
+
+.newBlogseoMetaData h3 {
+    font-size: 18px;
+    color: gray;
+}
+
+.metaDatainputField label {
+    font-weight: 400;
+    color: gray;
+    font-size: 13px;
+}
+
+.metaDatainputField input {
+    width: 89%;
+    color: gray;
+    outline: none;
+    border: 2px solid rgb(198, 198, 198);
+    padding: 4px;
+    border-radius: 5px;
+    margin-top: 7px;
+    height: 42px;
+}
+
+/* blog images and button */
+.blogInputFieldImgAndButton {
+    height: auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -4px 5px 39px -12px rgba(153, 153, 153, 0.66);
+    padding: 20px;
+}
+
+.blogInputFieldImgAndButton img {
+    height: 20vh;
+    object-fit: cover;
+}
+
+.blogInputFieldImgAndButton p {
+    border: 1px solid red;
+    font-size: 13px;
+    padding: 4px 20px;
+    color: rgb(251, 81, 81);
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* react quill */
+.reactQuill {
+    height: 25vh;
+    width: 100%;
+    
+}
+
+@media only screen and (max-width: 1000px) {
+    .newBlogContainer {
+        margin-left: 1%;
+        margin-top: 3vh;
+    }
+
+    .newBlogTitle h3 {
+        font-size: 18px;
+    }
+
+    .newBlogContainer {
+        margin-top: 0px;
+    }
+
+    .blogInputField input {
+        width: 99%;
+    }
+
+    .blogInputField label {
+        font-size: 12px;
+    }
+}

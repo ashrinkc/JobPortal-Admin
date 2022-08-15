@@ -1,0 +1,88 @@
+.allBlog {
+    display: flex;
+}
+
+.allBlogContainer {
+    flex: 5;
+    margin-top: 15vh;
+    box-shadow: -4px 5px 39px -12px rgba(83, 83, 83, 0.66);
+    margin-left: 18%;
+    margin-right: 2%;
+    /* z-index: -999; */
+}
+
+.allContainerWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.createBlogBtn button {
+    outline: none;
+    border: none;
+    border: 1px solid red;
+    margin: 25px 100px 23px 10px;
+    font-size: 14px;
+    padding: 4px 20px;
+    color: red;
+    border-radius: 8px;
+}
+
+.blogTitle h3 {
+    font-size: 25px;
+    margin: 24px 0px 20px 30px;
+    color: gray;
+}
+
+.button_delete {
+    border: 1px solid red;
+    outline: none;
+    color: red;
+    border-radius: 6px;
+    padding: 3px 6px;
+    font-size: 15px;
+}
+
+.button_delete:hover {
+    background-color: red;
+    color: white;
+}
+
+.button_update {
+    border: 1px solid lightseagreen;
+    outline: none;
+    color: lightgreen;
+    border-radius: 6px;
+    padding: 3px 6px;
+    font-size: 15px;
+    margin-left: 20px;
+    font-size: 15px;
+}
+
+.button_update:hover {
+    background-color: lightgreen;
+    color: white;
+}
+
+.userImg img {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+}
+
+@media only screen and (max-width: 1000px) {
+    .allBlogContainer {
+        margin-left: 3%;
+        margin-top: 3vh;
+    }
+
+    .blogTitle h3 {
+        font-size: 17px;
+    }
+
+    .createBlogBtn button {
+        outline: none;
+        margin: 25px 10px 23px 10px;
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+}

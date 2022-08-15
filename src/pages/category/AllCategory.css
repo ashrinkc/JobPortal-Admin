@@ -1,0 +1,94 @@
+.category {
+    display: flex;
+}
+
+.categoryContainer {
+    flex: 5;
+    margin-top: 15vh;
+    box-shadow: -4px 5px 39px -12px rgba(83, 83, 83, 0.66);
+    margin-left: 18%;
+    margin-right: 5%;
+    /* z-index: -999; */
+}
+
+.categoryTopBar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.categoryTopBar h3 {
+    font-size: 22px;
+    margin: 24px 0px 20px 30px;
+    color: gray;
+}
+
+/* add job button */
+.createCategoryBtn button {
+    outline: none;
+    border: none;
+    border: 1px solid red;
+    margin: 25px 100px 23px 10px;
+    font-size: 14px;
+    padding: 4px 20px;
+    color: red;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.createCategoryBtn button:hover {
+    background-color: rgb(255, 236, 236);
+}
+
+/* view and delete button */
+.categoryEdit_button {
+    border: 1px solid rgb(183, 0, 255);
+    outline: none;
+    color: rgb(183, 0, 255);
+    border-radius: 4px;
+    font-size: 13px;
+    padding: 4px 7px;
+}
+
+.categoryEdit_button:hover {
+    background-color: rgb(183, 0, 255);
+    color: white;
+}
+
+.button_delete {
+    border: 1px solid red;
+    outline: none;
+    color: red;
+    border-radius: 6px;
+    padding: 4px;
+    font-size: 13px;
+    margin-left: 10px;
+}
+
+.button_delete:hover {
+    background-color: red;
+    color: white;
+}
+
+.userImg img {
+    height: 60px;
+    width: 60px;
+    object-fit: contain;
+}
+
+@media only screen and (max-width: 1000px) {
+    .categoryContainer {
+        margin-left: 3%;
+        margin-top: 3vh;
+    }
+
+    .categoryTopBar h3 {
+        font-size: 17px;
+    }
+
+    .createCategoryBtn button {
+        outline: none;
+        margin: 25px 10px 23px 10px;
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+}

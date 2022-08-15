@@ -1,0 +1,183 @@
+.core {
+    display: flex;
+    height: auto;
+    margin: 5vh 0;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.coreContainer {
+    flex: 5;
+    margin-top: 12vh;
+    margin-left: 15%;
+}
+
+.coreRight {
+    /* margin: 30px 20px 10px 10px; */
+    padding-top: 10vh;
+    width: 70%;
+    padding-bottom: 5vh;
+    /* box-shadow: -4px 5px 39px -12px rgba(153, 153, 153, 0.66); */
+}
+
+/* upload logo */
+.uploadLogoBtnImg {
+    height: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -4px 5px 39px -12px rgba(153, 153, 153, 0.66);
+    padding: 20px;
+}
+
+
+.uploadLogoBtnImg img {
+    height: 20vh;
+    object-fit: contain;
+}
+
+.uploadLogoBtnImg p {
+    border: 1px solid red;
+    font-size: 13px;
+    padding: 4px 20px;
+    color: rgb(251, 81, 81);
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    text-align: center;
+    width: 50%;
+    margin-left: 25%;
+}
+
+/* input fields */
+.coreInputField {
+    display: flex;
+    width: 100%;
+}
+
+.coreInputField label {
+    font-weight: 400;
+    color: rgb(155, 155, 155);
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.coreInputFieldItem {
+    width: 48%;
+    margin-left: 1%;
+}
+
+.coreInputFieldItem input {
+    width: 100%;
+    color: gray;
+    border: 2px solid rgb(198, 198, 198);
+    padding: 6px 10px;
+    border-radius: 5px;
+    margin-top: 7px;
+    height: 42px;
+    outline-color: red;
+}
+
+/* text area (des) */
+.coreInputFieldItem {
+    width: 100%;
+}
+
+.coreInputFieldItem textarea {
+    width: 100%;
+    color: gray;
+    border: 2px solid rgb(198, 198, 198);
+    padding: 6px 10px;
+    border-radius: 5px;
+    margin-top: 7px;
+    height: 42px;
+    outline-color: red;
+}
+
+.contactDetails p {
+    margin-top: 30px;
+    margin-bottom: -10px;
+    color: gray;
+    font-size: 18px;
+    margin-left: 1%;
+}
+
+.socialDetails p {
+    margin-top: 30px;
+    margin-bottom: -10px;
+    color: gray;
+    font-size: 18px;
+    margin-left: 1%;
+}
+
+/* seo meta data keywords */
+.settingSeoMetaData p {
+    margin-top: 30px;
+    margin-bottom: -10px;
+    color: gray;
+    font-size: 18px;
+    margin-left: 1%;
+}
+
+.settingSeoMetaData label {
+    font-weight: 400;
+    color: rgb(155, 155, 155);
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.settingSeoMetaData input {
+    width: 100%;
+    color: gray;
+    border: 2px solid rgb(198, 198, 198);
+    padding: 6px 10px;
+    border-radius: 5px;
+    margin-top: 7px;
+    height: 42px;
+    outline-color: red;
+}
+
+/* save button */
+.seveButton button {
+    margin: 20px 10px 20px 8px;
+    padding: 3px 20px;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.seveButton button:hover {
+    background-color: rgb(250, 105, 105);
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+    .coreLeft {
+        width: 100%;
+    }
+
+    .coreContainer {
+        margin-left: 0%;
+        margin-top: 3vh;
+    }
+
+    .coreRight {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .uploadLogoBtnImg p {
+        font-size: 10px;
+        padding: 4px 20px;
+        margin-top: 20px;
+        width: 100%;
+        margin-left: 0%;
+    }
+}

@@ -1,0 +1,104 @@
+.editJobs {
+    display: flex;
+    height: auto;
+    margin-bottom: 10vh;
+}
+
+.editJobsContainer {
+    flex: 5;
+    margin-top: 12vh;
+    margin-left: 17%;
+}
+
+.editJobTitle {
+    font-weight: 500;
+    color: rgb(92, 90, 90);
+    margin-top: 20px;
+    letter-spacing: 1px;
+    font-size: 22px;
+}
+
+/*input */
+.editJobsInputField input {
+    width: 89%;
+    color: gray;
+    outline: none;
+    border: 2px solid rgb(198, 198, 198);
+    padding: 4px;
+    border-radius: 5px;
+    margin-top: 7px;
+    height: 42px;
+}
+
+.editJobsInputField label {
+    font-weight: 400;
+    color: gray;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.editJobsInputField select {
+    width: 89%;
+    color: rgb(26, 25, 25);
+    outline: none;
+    border: 2px solid rgb(198, 198, 198);
+    padding: 4px;
+    border-radius: 5px;
+    margin-top: 7px;
+    height: 42px;
+}
+
+.editJobButton button {
+    margin-top: 15px;
+    padding: 3px 60px;
+    outline: none;
+    border: none;
+    font-weight: 600;
+    color: white;
+    background-color: red;
+    border-radius: 9px;
+}
+
+/* blog images and button */
+.seoMetaData {
+    height: auto;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -4px 5px 39px -12px rgba(153, 153, 153, 0.66);
+    padding: 20px;
+}
+
+.seoMetaData h3 {
+    font-size: 18px;
+    color: gray;
+}
+
+/* react quill */
+.reactQuill {
+    height: 25vh;
+    width: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+    .editJobsContainer {
+        margin-left: 1%;
+        margin-top: 3vh;
+    }
+
+    .editJobTitle {
+        font-size: 18px;
+    }
+
+    .editJobsInputField input {
+        width: 99%;
+    }
+
+    .editJobsInputField label {
+        font-size: 12px;
+    }
+
+    .editJobTitle {
+        margin-top: 0px;
+    }
+}

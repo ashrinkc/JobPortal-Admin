@@ -1,0 +1,150 @@
+.widget {
+    height: auto;
+    width: 100%;
+    margin-top: 13vh;
+    color: gray;
+}
+
+.leftWidge {
+    height: 30vh;
+    width: 30%;
+    box-shadow: -4px 5px 39px -12px rgba(83, 83, 83, 0.66);
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    flex-direction: column;
+}
+
+.leftWidge p {
+    font-weight: 500;
+    color: red;
+    font-size: 14px;
+}
+
+.leftWidge h5 {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.middletWidget {
+    height: 30vh;
+    box-shadow: -4px 5px 39px -12px rgba(83, 83, 83, 0.66);
+    margin-left: 20px;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    flex-direction: column;
+}
+
+.middletWidget p {
+    font-weight: 600;
+    color: red;
+}
+
+.middletWidget p {
+    font-weight: 500;
+    color: red;
+    font-size: 14px;
+}
+
+.middletWidget h5 {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.rightWidget {
+    width: 30%;
+    margin-left: 20px;
+    height: 30vh;
+    box-shadow: -4px 5px 39px -12px rgba(83, 83, 83, 0.66);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    flex-direction: column;
+}
+
+.rightWidget p {
+    font-weight: 600;
+    color: red;
+}
+
+.rightWidget p {
+    font-weight: 500;
+    color: red;
+    font-size: 14px;
+}
+
+.rightWidget h5 {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.seeAlluser a {
+    font-size: 14px;
+    color: gray;
+    cursor: pointer;
+}
+
+.seeAlluser a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+.widget i {
+    font-size: 20px;
+    margin: 15px 0px 5px 0px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .widget {
+        margin-top: 2vh;
+        margin-left: -10%;
+    }
+
+    .leftWidge {
+        height: auto;
+        width: 100%;
+        margin-left: 0px;
+    }
+
+    .leftWidge h5 {
+        font-size: 11px;
+    }
+
+    .leftWidge p {
+        font-size: 10px;
+    }
+
+    .middletWidget {
+        height: auto;
+        width: 100%;
+        margin-left: 0px;
+    }
+
+    .middletWidget h5 {
+        font-size: 11px;
+    }
+
+    .middletWidget p {
+        font-size: 10px;
+    }
+
+    .rightWidget {
+        height: auto;
+        width: 100%;
+        margin-left: 0px;
+    }
+
+    .rightWidget h5 {
+        font-size: 11px;
+    }
+
+    .rightWidget p {
+        font-size: 10px;
+    }
+}
