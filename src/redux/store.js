@@ -53,3 +53,5 @@ export const store = configureStore({
     category: categoryReducer,
   },
 });
+
+// localStorage.setItem("myData", store);

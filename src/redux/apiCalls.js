@@ -48,8 +48,8 @@ import {
   updateUserStart,
   updateUserSuccess,
 } from "./userReducer";
-
-import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from "react-toastify";
 import axios from "axios";
 //success toastify
 const tostifySuccess = {
@@ -77,7 +77,12 @@ const toastifyFailure = {
 export const loginUser = async (dispatch, user) => {
   dispatch(loginStart());
   try {
-    // const res = await axios.post("/auth/login", user);
+    // const res
+    const res = await axios.post(
+      "http://localhost:5000/api/v1/auth/login",
+      user
+    );
+
     dispatch(loginSuccess(user.email));
     toast.success("Login success!", tostifySuccess);
     // auto log out when token is expired
@@ -85,11 +90,12 @@ export const loginUser = async (dispatch, user) => {
       localStorage.clear();
       window.location.reload("/");
       toast.error(" Token Expired! Login Again", toastifyFailure);
-    }, 1000 * 60 * 60 * 24 * 5);
+    }, 900000);
   } catch (error) {
     dispatch(loginfailure());
     console.log(error);
-    toast.error("Something went wrong please try again", toastifyFailure);
+    toast.error("Invalid credintials", toastifyFailure);
+    // <ToastContainer />;
   }
 };
 

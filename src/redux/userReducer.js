@@ -16,6 +16,11 @@ export const userSlice = createSlice({
     loginSuccess: (state, action) => {
       state.isFetching = false;
       state.currentUser = action.payload;
+      let expiresAt = Date.now() + 900000;
+      localStorage.setItem(
+        "user",
+        JSON.stringify({ ...action.payload, expiresAt })
+      );
     },
     loginfailure: (state) => {
       state.isFetching = false;
