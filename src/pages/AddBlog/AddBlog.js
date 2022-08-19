@@ -43,7 +43,6 @@ const AddBlog = () => {
     }
   };
 
-  //firebase used to store images and videos in email id
   const handleSubmitData = (e) => {
     e.preventDefault();
     dispatch(

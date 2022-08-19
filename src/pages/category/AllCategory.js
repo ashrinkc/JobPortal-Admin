@@ -7,8 +7,9 @@ import Sidebar from "../../Components/Sidebar/Sidebar";
 import { getAllCategory } from "../../redux/apiCalls";
 import { DataGrid } from "@mui/x-data-grid";
 import "./AllCategory.css";
+import DeleteAlert from "../../Components/DeleteAlert/DeleteAlert";
 const AllCategory = () => {
-  const category = "job category";
+  const category = "category";
   const dispatch = useDispatch();
   const categoryData = useSelector((state) => state.category.categorys);
   //Open Close delete alert
@@ -22,11 +23,22 @@ const AllCategory = () => {
   }, [dispatch]);
 
   const columns = [
-    // jobs category title
-    { field: "title", headerName: "Title", width: 200 },
+    // user name
+    { field: "fullName", headerName: "Name", width: 200 },
 
-    //publish date
-    { field: "date", headerName: "Publish Date", width: 200 },
+    //user address
+    { field: "address", headerName: "Address", width: 200 },
+
+    //user jobTitle
+    { field: "jobTitle", headerName: "Job", width: 200 },
+
+    { field: "contact", headerName: "Contact no.", width: 200 },
+
+    { field: "email", headerName: "Email", width: 200 },
+
+    { field: "message", headerName: "Message ", width: 200 },
+
+    { field: "createdAt", headerName: "Created Data", width: 200 },
 
     //action
     {
@@ -36,10 +48,6 @@ const AllCategory = () => {
       renderCell: (params) => {
         return (
           <>
-            {/* view data button  */}
-            <NavLink to={`/edit_cat/${params.row._id}`}>
-              <button className="categoryEdit_button">edit</button>
-            </NavLink>
             {/* delete user data button  */}
             <span>
               <button
@@ -65,13 +73,13 @@ const AllCategory = () => {
         ) : (
           <div className="categoryContainer">
             <div className="categoryTopBar">
-              <h3>All Category</h3>
+              <h3>All Users</h3>
               {/* create job button  */}
-              <div className="createCategoryBtn">
+              {/* <div className="createCategoryBtn">
                 <NavLink className="link" to="/create_cat">
                   <button>Add Category</button>
                 </NavLink>
-              </div>
+              </div> */}
             </div>
             {isLoading ? (
               <Loader />
@@ -80,6 +88,14 @@ const AllCategory = () => {
                 className="tableContainer"
                 style={{ height: 520, width: "96%" }}
               >
+                {/* show popoup whwn delete button is clicked */}
+                {showDeleteAlert && (
+                  <DeleteAlert
+                    setShowDeleteAlert={setShowDeleteAlert}
+                    id={showDeleteAlert}
+                    props={category}
+                  />
+                )}
                 <DataGrid
                   rows={categoryData}
                   columns={columns}

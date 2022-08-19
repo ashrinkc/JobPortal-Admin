@@ -6,11 +6,12 @@ import Sidebar from "../../Components/Sidebar/Sidebar";
 import { getAllJobs } from "../../redux/apiCalls";
 import { DataGrid } from "@mui/x-data-grid";
 import "./AllJobs.css";
+import DeleteAlert from "../../Components/DeleteAlert/DeleteAlert";
 
 const AllJobs = () => {
   const job = "job";
   const dispatch = useDispatch();
-  const jobs = useSelector((state) => state.jobs?.jobs);
+  const jobs = useSelector((state) => state.jobs.jobs);
 
   //open close delete alert
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
@@ -96,6 +97,14 @@ const AllJobs = () => {
           <Loader />
         ) : (
           <div className="tableContainer" style={{ height: 520, width: "96%" }}>
+            {/* show popoup whwn delete button is clicked */}
+            {showDeleteAlert && (
+              <DeleteAlert
+                setShowDeleteAlert={setShowDeleteAlert}
+                id={showDeleteAlert}
+                props={job}
+              />
+            )}
             <DataGrid
               rows={jobs}
               columns={columns}

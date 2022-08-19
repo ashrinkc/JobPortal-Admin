@@ -136,10 +136,10 @@ const CreateJob = () => {
                   <div className="inputField">
                     <label htmlFor="">Description</label>
                     <div className="reactQuill">
-                      <div
+                      <input
                         name="desc"
                         onChange={(e) => setDesc(e.target.value)}
-                        ref={quillRef}
+                        //ref={quillRef}
                         required
                       />
                       {/* create btn */}

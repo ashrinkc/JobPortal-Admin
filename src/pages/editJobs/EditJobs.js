@@ -41,7 +41,9 @@ const EditJobs = () => {
     setDidMount(true);
     const getDataById = async () => {
       try {
-        const res = await axios.get("/jobs/find/" + path);
+        const res = await axios.get(
+          "http://localhost:5000/api/v1/jobs/find/" + path
+        );
         setJobData(res.data);
       } catch (error) {
         console.log(error);
@@ -170,10 +172,10 @@ const EditJobs = () => {
                   <div className="editJobsInputField">
                     <label htmlFor="">Description</label>
                     <div className="reactQuill">
-                      <div
+                      <input
                         name="desc"
                         onChange={(e) => setDesc(e.target.value)}
-                        ref={quillRef}
+                        // ref={quillRef}
                       />
                       {/* {oldDelta} */}
                       {/* create btn */}

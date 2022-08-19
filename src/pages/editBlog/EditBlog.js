@@ -30,7 +30,10 @@ const EditBlog = () => {
     setDidMount(true);
     const getDataById = async () => {
       try {
-        const res = await axios.get("/blog/find" + path);
+        const res = await axios.get(
+          "http://localhost:5000/api/v1/blog/find/" + path
+        );
+        console.log(res.data);
         setBlogData(res.data);
       } catch (error) {
         console.log(error);
@@ -75,57 +78,66 @@ const EditBlog = () => {
   //firebase is used to store images and videos in email id
   const handleSubmitData = (e) => {
     e.preventDefault();
-    if (selectImagesProfile) {
-      const storage = getStorage(app);
-      const storageRef = ref(storage, selectImagesProfile.name);
-      const uploadTask = uploadBytesResumable(storageRef, selectImagesProfile);
-      // Listen for state changes, errors, and completion of the upload.
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-          const progress = "Processing..";
-          setProgress(progress);
-          switch (snapshot.state) {
-            case "paused":
-              setProgress(progress);
-              break;
-            case "running":
-              setProgress(progress);
-              break;
-            default:
-          }
-        },
-        (error) => {},
-        () => {
-          // Upload completed successfully, now we can get the download URL
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            const blogData = {
-              img: downloadURL,
-              title,
-              author,
-              desc,
-              metaDesc,
-              metaKey,
-              metaTitle,
-            };
-            updateBlog(path, blogData, dispatch);
-            navigate("/blog");
-          });
-        }
-      );
-    } else {
-      const blogData = {
-        title,
-        author,
-        desc,
-        metaDesc,
-        metaKey,
-        metaTitle,
-      };
-      updateBlog(path, blogData, dispatch);
-      navigate("/blog");
-    }
+    const blogData = {
+      title,
+      author,
+      desc,
+      metaDesc,
+      metaKey,
+      metaTitle,
+    };
+    dispatch(updateBlog(path, blogData, dispatch));
+    // if (selectImagesProfile) {
+    //   const storage = getStorage(app);
+    //   const storageRef = ref(storage, selectImagesProfile.name);
+    //   const uploadTask = uploadBytesResumable(storageRef, selectImagesProfile);
+    //   // Listen for state changes, errors, and completion of the upload.
+    //   uploadTask.on(
+    //     "state_changed",
+    //     (snapshot) => {
+    //       // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+    //       const progress = "Processing..";
+    //       setProgress(progress);
+    //       switch (snapshot.state) {
+    //         case "paused":
+    //           setProgress(progress);
+    //           break;
+    //         case "running":
+    //           setProgress(progress);
+    //           break;
+    //         default:
+    //       }
+    //     },
+    //     (error) => {},
+    //     () => {
+    //       // Upload completed successfully, now we can get the download URL
+    //       getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+    //         const blogData = {
+    //           img: downloadURL,
+    //           title,
+    //           author,
+    //           desc,
+    //           metaDesc,
+    //           metaKey,
+    //           metaTitle,
+    //         };
+    //         updateBlog(path, blogData, dispatch);
+    //         navigate("/blog");
+    //       });
+    //     }
+    //   );
+    // } else {
+    //   const blogData = {
+    //     title,
+    //     author,
+    //     desc,
+    //     metaDesc,
+    //     metaKey,
+    //     metaTitle,
+    //   };
+    //   updateBlog(path, blogData, dispatch);
+    //   navigate("/blog");
+    // }
   };
 
   return (
@@ -253,10 +265,10 @@ const EditBlog = () => {
                     <div className="editBlogInputField">
                       <label>Description</label>
                       <div className="reactQuill">
-                        <div
+                        <input
                           name="desc"
                           onChange={(e) => setDesc(e.target.value)}
-                          ref={quillRef}
+                          // ref={quillRef}
                         />
                         {/* create btn  */}
                         <div className="editBlogButton">

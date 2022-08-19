@@ -48,12 +48,12 @@ const Topbar = () => {
                 <span>Profile</span>
               </Link>
             </div>
-            <div>
+            {/* <div>
               <Link className=" link dropdown-item" to="/setting/core">
-                {/* <i className="fa-solid fa-gear"></i> */}
+                
                 <span>Setting</span>
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

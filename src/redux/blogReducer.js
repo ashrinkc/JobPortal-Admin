@@ -13,9 +13,10 @@ export const BlogsSlice = createSlice({
       state.isFetching = true;
       state.error = false;
     },
-    getBlogsSucess: (state, action) => {
+    getBlogsSuccess: (state, action) => {
       state.isFetching = false;
       state.blogs = action.payload;
+      // console.log(state.blogs);
     },
     getBlogsFailure: (state) => {
       state.isFetching = false;

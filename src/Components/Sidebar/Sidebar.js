@@ -34,7 +34,7 @@ const Sidebar = () => {
             <NavLink className="link" to="/category">
               <li className="sidebarItem mt-1">
                 <i className="fa-solid fa-shapes"></i>
-                <span>Category</span>
+                <span>Users</span>
               </li>
             </NavLink>
           </div>

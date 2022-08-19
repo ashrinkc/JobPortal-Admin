@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllBlog } from "../../redux/apiCalls";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import Loader from "../../Components/Loader/Loader";
+import DeleteAlert from "../../Components/DeleteAlert/DeleteAlert";
 
 const Allproduct = () => {
   const blog = "blog";
@@ -121,13 +122,13 @@ const Allproduct = () => {
               style={{ height: 520, width: "96%" }}
             >
               {/* show popoup whwn delete button is clicked */}
-              {/* {showDeleteAlert && (
+              {showDeleteAlert && (
                 <DeleteAlert
                   setShowDeleteAlert={setShowDeleteAlert}
                   id={showDeleteAlert}
                   props={blog}
                 />
-              )} */}
+              )}
               <DataGrid
                 rows={blogs}
                 columns={columns}

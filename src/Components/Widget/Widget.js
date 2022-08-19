@@ -50,11 +50,11 @@ const Widget = () => {
           {/* category  */}
           <div className="middletWidget">
             {/* <i className="fa-solid fa-shapes"></i> */}
-            <h5>Total Category</h5>
+            <h5>Total Users</h5>
             <p>{categoryData.length}</p>
             <div className="seeAlluser">
               <Link className="link" to="/category">
-                view all category
+                view all users
               </Link>
             </div>
           </div>
