@@ -42,7 +42,7 @@ const EditJobs = () => {
     const getDataById = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/v1/jobs/find/" + path
+          "https://multi-agency.herokuapp.com/api/v1/jobs/find/" + path
         );
         setJobData(res.data);
       } catch (error) {
