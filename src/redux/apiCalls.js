@@ -82,7 +82,8 @@ export const loginUser = async (dispatch, user) => {
       "https://multi-agency.herokuapp.com/api/v1/auth/login",
       user
     );
-
+    console.log(res.data);
+    localStorage.setItem("token", res.data.token);
     dispatch(loginSuccess(user.email));
     toast.success("Login success!", tostifySuccess);
     // auto log out when token is expired
@@ -142,7 +143,13 @@ export const getAllJobs = async (dispatch) => {
 export const createJobs = async (jobs, dispatch) => {
   dispatch(createJobStart());
   try {
-    await axios.post("https://multi-agency.herokuapp.com/api/v1/jobs", jobs);
+    const token = localStorage.getItem("token");
+    // console.log(token);
+    await axios.post("https://multi-agency.herokuapp.com/api/v1/jobs", jobs, {
+      headers: {
+        authorization: "Bearer " + token,
+      },
+    });
     dispatch(createJobSuccess(jobs.data));
     toast.success("Job successfully created", tostifySuccess);
   } catch (error) {
@@ -157,7 +164,12 @@ export const createJobs = async (jobs, dispatch) => {
 export const deleteJobs = async (id, dispatch) => {
   dispatch(deleteJobStart());
   try {
-    await axios.delete(`https://multi-agency.herokuapp.com/api/v1/jobs/${id}`);
+    const token = localStorage.getItem("token");
+    await axios.delete(`https://multi-agency.herokuapp.com/api/v1/jobs/${id}`, {
+      headers: {
+        authorization: "Bearer " + token,
+      },
+    });
     dispatch(deleteJobSuccess(id));
   } catch (error) {
     console.log("unable to delete jobs" + error);
@@ -170,9 +182,15 @@ export const deleteJobs = async (id, dispatch) => {
 export const updateJobs = async (id, jobs, dispatch) => {
   dispatch(updateJobsStart());
   try {
+    const token = localStorage.getItem("token");
     await axios.put(
       `https://multi-agency.herokuapp.com/api/v1/jobs/${id}`,
-      jobs
+      jobs,
+      {
+        headers: {
+          authorization: "Bearer " + token,
+        },
+      }
     );
     dispatch(updateJobsSuccess(id, jobs));
     toast.success("Job successfully updated", tostifySuccess);
@@ -187,8 +205,14 @@ export const updateJobs = async (id, jobs, dispatch) => {
 export const getAllCategory = async (dispatch) => {
   dispatch(getCategorysStart());
   try {
+    const token = localStorage.getItem("token");
     const res = await axios.get(
-      "https://multi-agency.herokuapp.com/api/v1/contact"
+      "https://multi-agency.herokuapp.com/api/v1/contact",
+      {
+        headers: {
+          authorization: "Bearer " + token,
+        },
+      }
     );
     dispatch(getCategorysSuccess(res.data.data));
   } catch (error) {
@@ -229,8 +253,14 @@ export const updateCategory = async (id, cat, dispatch) => {
 export const deleteCategory = async (id, dispatch) => {
   dispatch(deleteCategoryStart());
   try {
+    const token = localStorage.getItem("token");
     await axios.delete(
-      `https://multi-agency.herokuapp.com/api/v1/contact/${id}`
+      `https://multi-agency.herokuapp.com/api/v1/contact/${id}`,
+      {
+        headers: {
+          authorization: "Bearer " + token,
+        },
+      }
     );
     dispatch(deleteCategorySuccess(id));
     toast.success(" Category successfully deleted", tostifySuccess);
@@ -261,11 +291,17 @@ export const getAllBlog = async (dispatch) => {
 export const createBlog = async (blogData, dispatch) => {
   dispatch(createBlogStart());
   try {
-    console.log(blogData);
+    // console.log(blogData);
     // await axios.get(`/blog`, blogData);
+    const token = localStorage.getItem("token");
     await axios.post(
       "https://multi-agency.herokuapp.com/api/v1/blog",
-      blogData
+      blogData,
+      {
+        headers: {
+          authorization: "Bearer " + token,
+        },
+      }
     );
     // dispatch(createBlogSuccess(blogData.data));
     toast.success("Blog successfully created", tostifySuccess);
@@ -280,11 +316,17 @@ export const createBlog = async (blogData, dispatch) => {
 //update blogs
 export const updateBlog = async (id, blogs, dispatch) => {
   dispatch(updateBlogsStart());
-  console.log(blogs);
+  // console.log(blogs);
   try {
+    const token = localStorage.getItem("token");
     await axios.put(
       `https://multi-agency.herokuapp.com/api/v1/blog/${id}`,
-      blogs
+      blogs,
+      {
+        headers: {
+          authorization: "Bearer " + token,
+        },
+      }
     );
     console.log(blogs);
     dispatch(updateBlogsSuccess(id, blogs));
@@ -300,7 +342,12 @@ export const updateBlog = async (id, blogs, dispatch) => {
 export const deleteBlogs = async (id, dispatch) => {
   dispatch(deleteBlogStart());
   try {
-    await axios.delete(`https://multi-agency.herokuapp.com/api/v1/blog/${id}`);
+    const token = localStorage.getItem("token");
+    await axios.delete(`https://multi-agency.herokuapp.com/api/v1/blog/${id}`, {
+      headers: {
+        authorization: "Bearer " + token,
+      },
+    });
     dispatch(deleteBlogSuccess(id));
   } catch (err) {
     console.log("unable to delete blog" + err);

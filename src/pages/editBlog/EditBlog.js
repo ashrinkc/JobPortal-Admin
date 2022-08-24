@@ -31,7 +31,7 @@ const EditBlog = () => {
     const getDataById = async () => {
       try {
         const res = await axios.get(
-          "https://multi-agency.herokuapp.com/api/v1/blog/find/" + path
+          "http://multi-agency.herokuapp.com/api/v1/blog/find/" + path
         );
         console.log(res.data);
         setBlogData(res.data);

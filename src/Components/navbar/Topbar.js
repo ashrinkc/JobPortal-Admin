@@ -4,7 +4,7 @@ import "./topbar.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
-
+import multiEmp from "../../images/multiEmp.png";
 const Topbar = () => {
   // const user = useSelector((state) => state.user.currentUser);
 
@@ -34,10 +34,7 @@ const Topbar = () => {
         <div className="navbar">
           <div className="left">
             <Link className="link" to="/">
-              <img
-                src="https://www.logodesign.net/images/nature-logo.png"
-                alt="logo_img"
-              />
+              <img src={multiEmp} alt="logo_img" />
             </Link>
           </div>
           {/* right side */}
