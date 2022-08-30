@@ -141,7 +141,7 @@ export const getAllJobs = async (dispatch) => {
 
 //create jobs
 export const createJobs = async (jobs, dispatch) => {
-  dispatch(createJobStart());
+  // dispatch(createJobStart());
   try {
     const token = localStorage.getItem("token");
     // console.log(token);
@@ -291,18 +291,19 @@ export const getAllBlog = async (dispatch) => {
 export const createBlog = async (blogData, dispatch) => {
   dispatch(createBlogStart());
   try {
-    // console.log(blogData);
+    console.log(blogData);
     // await axios.get(`/blog`, blogData);
     const token = localStorage.getItem("token");
-    await axios.post(
-      "https://multi-agency.herokuapp.com/api/v1/blog",
-      blogData,
-      {
+    await axios
+      .post("https://multi-agency.herokuapp.com/api/v1/blog", blogData, {
         headers: {
           authorization: "Bearer " + token,
+          // "Content-Type": "multipart/form-data",
         },
-      }
-    );
+      })
+      .then(function (response) {
+        console.log(response);
+      });
     // dispatch(createBlogSuccess(blogData.data));
     toast.success("Blog successfully created", tostifySuccess);
   } catch (error) {

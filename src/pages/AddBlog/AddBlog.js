@@ -13,8 +13,10 @@ import "./addblog.css";
 // import Sidebar from "../../Components/Sidebar/Sidebar.js";
 import Loader from "../../Components/Loader/Loader.js";
 import { createBlogSuccess } from "../../redux/blogReducer.js";
+import axios from "axios";
 const AddBlog = () => {
   const [image, setImage] = useState(null);
+
   const [selectImagesProfile, setSelectImagesProfile] = useState(null);
   //react quill used for job description
   const { quill, quillRef } = useQuill();
@@ -38,69 +40,95 @@ const AddBlog = () => {
   const [metaDesc, setMetaDesc] = useState("");
   const onImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
-      setImage(URL.createObjectURL(e.target.files[0]));
-      setSelectImagesProfile(e.target.files[0]);
+      // setImage(formData);
+      // console.log(image);
+      // setImage(URL.createObjectURL(e.target.files[0]));
+      // setImage(e.target.files[0]);
+      // setSelectImagesProfile(e.target.files[0]);
+      const file = e.target.files[0];
+      setFiletoBase(file);
     }
   };
 
-  const handleSubmitData = (e) => {
+  const setFiletoBase = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setImage(reader.result);
+    };
+  };
+
+  const handleSubmitData = async (e) => {
     e.preventDefault();
+
+    const data = new FormData();
+    data.append("img", image);
+    data.append("title", title);
+    data.append("author", author);
+    data.append("desc", desc);
+    data.append("metaDesc", metaDesc);
+    data.append("metaKey", metaKey);
+    data.append("metaTitle", metaTitle);
+
     dispatch(
       createBlog(
-        {
-          img: "https://preview.colorlib.com/theme/readit/images/ximage_1.jpg.pagespeed.ic.ndb4JOHu-q.webp",
-          title,
-          author,
-          desc,
-          metaDesc,
-          metaKey,
-          metaTitle,
-        },
+        // {
+        //   img: "https://preview.colorlib.com/theme/readit/images/ximage_1.jpg.pagespeed.ic.ndb4JOHu-q.webp",
+        //   img: image,
+        //   title,
+        //   author,
+        //   desc,
+        //   metaDesc,
+        //   metaKey,
+        //   metaTitle,
+        // },
+        data,
         dispatch
       )
     );
-
-    // const storage = getStorage(app);
-    // const storageRef = ref(storage, selectImagesProfile.name);
-    // const uploadTask = uploadBytesResumable(storageRef, selectImagesProfile);
-    //listen for state errors and completion of tghe upload
-    // uploadTask.on(
-    //   "state_changed",
-    //   (snapshot) => {
-
-    //     const progress = "Processing...";
-    //     setProgress(progress);
-    //     switch (snapshot.state) {
-    //       case "paused":
-    //         setProgress(progress);
-    //         break;
-    //       case "running":
-    //         setProgress(progress);
-    //         break;
-    //       default:
-    //     }
-    //   },
-    //   (error) => {},
-    //   () => {
-    //     //upload completed successfully, now we can get the download URL
-    //     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-    //       const blogData = {
-    //         img: downloadURL,
-    //         title,
-    //         author,
-    //         desc,
-    //         metaDesc,
-    //         metaKey,
-    //         metaTitle,
-    //       };
-    //       createBlog(blogData, dispatch);
-    //       setTimeout(() => {
-    //         window.location.reload("/blog");
-    //       }, 1500);
-    //     });
-    //   }
-    // );
   };
+  // const handleSubmitData = () => {
+  //   const storage = getStorage(app);
+  //   const storageRef = ref(storage, selectImagesProfile.name);
+  //   const uploadTask = uploadBytesResumable(storageRef, selectImagesProfile);
+  //   // listen for state errors and completion of tghe upload
+  //   uploadTask.on(
+  //     "state_changed",
+  //     (snapshot) => {
+  //       const progress = "Processing...";
+  //       setProgress(progress);
+  //       switch (snapshot.state) {
+  //         case "paused":
+  //           setProgress(progress);
+  //           break;
+  //         case "running":
+  //           setProgress(progress);
+  //           break;
+  //         default:
+  //       }
+  //     },
+  //     (error) => {},
+  //     () => {
+  //       //upload completed successfully, now we can get the download URL
+  //       getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+  //         const blogData = {
+  //           img: downloadURL,
+  //           title,
+  //           author,
+  //           desc,
+  //           metaDesc,
+  //           metaKey,
+  //           metaTitle,
+  //         };
+  //         createBlog(blogData, dispatch);
+  //         setTimeout(() => {
+  //           window.location.reload("/blog");
+  //         }, 1500);
+  //       });
+  //     }
+  //   );
+  // };
+
   return (
     <>
       <div className="newBlog">
@@ -116,7 +144,7 @@ const AddBlog = () => {
                   <h3>Create New Blog</h3>
                 </div>
 
-                <form className="addJobForm">
+                <form className="addJobForm" enctype="multipart/form-data">
                   <div className="row">
                     {/* left side */}
                     <div className="col-md-6 leftSideBlog">
@@ -160,8 +188,9 @@ const AddBlog = () => {
                               <input
                                 type="file"
                                 id="files"
+                                accept=".png, .jpg, .jpeg"
                                 style={{ display: "none" }}
-                                name="coverPic"
+                                name="file"
                                 onChange={onImageChange}
                                 required
                               />
@@ -177,6 +206,7 @@ const AddBlog = () => {
                             <input
                               type="file"
                               id="files"
+                              accept=".png, .jpg, .jpeg"
                               style={{ display: "none" }}
                               name="coverPic"
                               onChange={onImageChange}
@@ -242,7 +272,13 @@ const AddBlog = () => {
                       />
                       {/* create btn */}
                       <div className="createnewBlogButton">
-                        <button onClick={handleSubmitData}>Create</button>
+                        <button
+                          onClick={handleSubmitData}
+                          formEncType="multipart/form-data"
+                        >
+                          Create
+                        </button>
+
                         {progress}
                       </div>
                     </div>
